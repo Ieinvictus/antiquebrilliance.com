@@ -12,32 +12,38 @@
   box-sizing:border-box;
 }
 
+/* FIX HEIGHT ISSUE */
+html, body{
+  height:auto;
+}
+
 body{
   font-family:'Inter', sans-serif;
   background:var(--black);
-  color:var(--white);                 
-  overflow-x:hidden;                   /* no horizontal scroll */
-  overflow-y:auto;                     /* vertical scroll always */
-
+  color:var(--white);
+  overflow-x:hidden;
+  overflow-y:auto;
   -webkit-font-smoothing:antialiased;
   -moz-osx-font-smoothing:grayscale;
-
-  touch-action:manipulation;           /* better mobile scroll */
-
+  touch-action:manipulation;
 }
 
-/* HERO IMAGE (LUXURY LOOK) */
+/* HERO */
 .hero{
-  min-height:100dvh;   /* 🔥 replace 100vh */
-  height:auto;         /* 🔥 allow growth */
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
   position:relative;
+  overflow:hidden;
 
   background:
     linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.95)),
     url("https://antiquebrilliance.com/banner/ant-banner02.jpg") center/cover no-repeat;
 }
 
-/* GOLD LIGHT GLOW (KEY EFFECT) */
+/* GLOW EFFECT */
 .hero::before{
   content:"";
   position:absolute;
@@ -54,13 +60,13 @@ body{
   content:"";
   position:absolute;
   width:400px;
-  pointer-events: none;
   height:400px;
-  background:radial-gradient(circle, rgba(245,230,196,0.25), transparent 70%);
   bottom:10%;
   right:10%;
+  background:radial-gradient(circle, rgba(245,230,196,0.25), transparent 70%);
   filter:blur(100px);
   animation:moveGlow 12s infinite alternate-reverse ease-in-out;
+  pointer-events:none;
 }
 
 @keyframes moveGlow{
@@ -68,71 +74,24 @@ body{
   100%{ transform:translate(60px, -40px); }
 }
 
-/* CENTER CONTENT */
+/* CONTENT */
 .content{
-  position:absolute;
-  top:50%;
-  left:50%;
-  transform:translate(-50%,-50%);
-  text-align:center;
   width:90%;
+  max-width:1100px;
+  margin:auto;
+  padding:40px 20px;
+  animation:float 6s ease-in-out infinite;
 }
-/* ONLY 768px CONTENT AUTO FIX */
-@media (max-width:768px){
-.hero{
-    display:flex;
-    align-items:flex-start;   /* 🔥 no center */
-    justify-content:center;
-    padding:5rem 1.2rem 3rem;
+
+/* FLOAT FIX */
+@keyframes float{
+  0%,100%{ transform:translateY(0); }
+  50%{ transform:translateY(-8px); }
 }
-  .content{
-    position:relative;
-    width:100%;
-    max-width:600px;
-padding-top:4rem;   /* 🔥 push content down */
-    margin:0 auto;              /* 🔥 center horizontally */
-    padding:2rem 1rem;
-animation:none;   /* 🔥 VERY IMPORTANT */
-    text-align:center;
 
-    display:flex;               /* 🔥 perfect center control */
-    flex-direction:column;
-    align-items:center;         /* horizontal center */
-    justify-content:center;     /* vertical center */
-  
-  }
-
-  h1{
-    font-size:clamp(2.2rem,8vw,3rem);
-    line-height:1.2;
-  }
-
-  h2{
-    font-size:clamp(1rem,4vw,1.4rem);
-  }
-
-  p{
-    font-size:clamp(0.9rem,3.5vw,1rem);
-    padding:0 10px;
-  }
-
-  .social{
-    flex-wrap:wrap;          /* auto wrap */
-    gap:0.8rem;
-  }
-
-  .social a{
-    width:42px;
-    height:42px;
-  }
-
-  .cta{
-    margin-top:1.5rem;
-  }
-
-}
-/* PREMIUM TITLE */
+/* TITLE */
 h1{
+  position:relative; /* 🔥 required for shine */
   font-family:'Playfair Display', serif;
   font-size:clamp(2.8rem,6vw,5.5rem);
   background:linear-gradient(120deg,#ffffff,#f5f5f5,#ffffff);
@@ -141,12 +100,12 @@ h1{
   letter-spacing:2px;
 }
 
-/* SHINE ANIMATION */
+/* SHINE */
 h1::after{
   content:"";
   position:absolute;
-  left:0;
   top:0;
+  left:0;
   width:100%;
   height:100%;
   background:linear-gradient(120deg, transparent, rgba(255,255,255,0.4), transparent);
@@ -158,6 +117,7 @@ h1::after{
   100%{ transform:translateX(100%); }
 }
 
+/* SUBTEXT */
 h2{
   font-size:clamp(1.2rem,2.5vw,2rem);
   margin:1.2rem 0;
@@ -172,7 +132,8 @@ p{
   color:#bbb;
   line-height:1.7;
 }
-/* CTA BUTTON */
+
+/* CTA */
 .cta{
   margin-top:2rem;
 }
@@ -184,21 +145,19 @@ p{
   letter-spacing:1px;
   text-decoration:none;
   color:var(--white);
-
   border:1px solid rgba(255,255,255,0.6);
   border-radius:30px;
-
   transition:all 0.4s ease;
 }
 
-/* HOVER - LUXURY GOLD */
 .cta-btn:hover{
   background:linear-gradient(120deg,var(--gold),var(--gold-soft));
   color:#000;
   border-color:transparent;
   box-shadow:0 0 25px rgba(201,161,74,0.6);
 }
-/* SOCIAL ICONS */
+
+/* SOCIAL */
 .social{
   margin-top:2.5rem;
   display:flex;
@@ -209,31 +168,43 @@ p{
 .social a{
   width:48px;
   height:48px;
-  text-decoration:none;   /* remove underline */
   border:1px solid rgba(255,255,255,0.9);
   border-radius:50%;
   display:flex;
   align-items:center;
   justify-content:center;
   color:var(--white);
+  text-decoration:none;
   backdrop-filter:blur(10px);
   transition:0.4s;
 }
 
-/* ICON HOVER (ICONIC FEEL) */
 .social a:hover{
   background:linear-gradient(120deg,var(--gold),var(--gold-soft));
   color:#000;
   box-shadow:0 0 25px rgba(201,161,74,0.7);
-  transform:scale(1.2) rotate(5deg);
+  transform:scale(1.15);
 }
 
-/* FLOAT (VERY SUBTLE) */
-.content{
-  animation:float 8s ease-in-out infinite;
-}
+/* MOBILE PERFECT */
+@media (max-width:768px){
 
-@keyframes float{
-  0%,100%{ transform:translate(-50%,-50%) translateY(0); }
-  50%{ transform:translate(-50%,-50%) translateY(-8px); }
+  .content{
+    padding:30px 15px;
+  }
+
+  h1{
+    font-size:clamp(2rem,8vw,3rem);
+    letter-spacing:1px;
+  }
+
+  p{
+    font-size:0.9rem;
+  }
+
+  .social a{
+    width:40px;
+    height:40px;
+  }
+
 }
