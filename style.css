@@ -28,10 +28,9 @@ body{
 
 /* HERO IMAGE (LUXURY LOOK) */
 .hero{
-  height:100vh;
-  width:100%;
+  min-height:100dvh;   /* 🔥 replace 100vh */
+  height:auto;         /* 🔥 allow growth */
   position:relative;
-  overflow:hidden;
 
   background:
     linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.95)),
@@ -80,7 +79,12 @@ body{
 }
 /* ONLY 768px CONTENT AUTO FIX */
 @media (max-width:768px){
-
+.hero{
+    display:flex;
+    align-items:flex-start;   /* 🔥 no center */
+    justify-content:center;
+    padding:5rem 1.2rem 3rem;
+}
   .content{
     position:relative;
     width:100%;
@@ -88,7 +92,7 @@ body{
 padding-top:4rem;   /* 🔥 push content down */
     margin:0 auto;              /* 🔥 center horizontally */
     padding:2rem 1rem;
-
+animation:none;   /* 🔥 VERY IMPORTANT */
     text-align:center;
 
     display:flex;               /* 🔥 perfect center control */
