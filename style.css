@@ -16,8 +16,14 @@ body{
   font-family:'Inter', sans-serif;
   background:var(--black);
   color:var(--white);
-  overflow-y: auto;
-  min-height:100vh;
+  min-height:100dvh;                   /* dynamic mobile height */
+  overflow-x:hidden;                   /* no horizontal scroll */
+  overflow-y:auto;                     /* vertical scroll always */
+
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+
+  touch-action:manipulation;           /* better mobile scroll */
 
 }
 
@@ -73,17 +79,54 @@ body{
   text-align:center;
   width:90%;
 }
-/* ONLY 768px FIX */
+/* ONLY 768px CONTENT AUTO FIX */
 @media (max-width:768px){
 
-  .hero{
-    height:auto;
-    min-height:100vh;
-    padding:6rem 1.5rem;
-    display:flex;
-    align-items:center;
-    justify-content:center;
+  .content{
+    position:relative;
+    width:100%;
+    max-width:600px;
+
+    margin:0 auto;              /* 🔥 center horizontally */
+    padding:2rem 1rem;
+
+    text-align:center;
+
+    display:flex;               /* 🔥 perfect center control */
+    flex-direction:column;
+    align-items:center;         /* horizontal center */
+    justify-content:center;     /* vertical center */
+  
   }
+
+  h1{
+    font-size:clamp(2.2rem,8vw,3rem);
+    line-height:1.2;
+  }
+
+  h2{
+    font-size:clamp(1rem,4vw,1.4rem);
+  }
+
+  p{
+    font-size:clamp(0.9rem,3.5vw,1rem);
+    padding:0 10px;
+  }
+
+  .social{
+    flex-wrap:wrap;          /* auto wrap */
+    gap:0.8rem;
+  }
+
+  .social a{
+    width:42px;
+    height:42px;
+  }
+
+  .cta{
+    margin-top:1.5rem;
+  }
+
 }
 /* PREMIUM TITLE */
 h1{
