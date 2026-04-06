@@ -16,6 +16,9 @@ body{
   font-family:'Inter', sans-serif;
   background:var(--black);
   color:var(--white);
+  overflow-y: auto;
+  min-height:100vh;
+
 }
 
 /* HERO IMAGE (LUXURY LOOK) */
