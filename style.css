@@ -73,7 +73,18 @@ body{
   text-align:center;
   width:90%;
 }
+/* ONLY 768px FIX */
+@media (max-width:768px){
 
+  .hero{
+    height:auto;
+    min-height:100vh;
+    padding:3rem 1.5rem;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+  }
+}
 /* PREMIUM TITLE */
 h1{
   font-family:'Playfair Display', serif;
