@@ -82,7 +82,6 @@ body{
     padding:6rem 1.5rem;
     display:flex;
     align-items:center;
-    overflow:visible;     /* allow scroll */
     justify-content:center;
   }
 }
