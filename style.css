@@ -86,7 +86,7 @@ body{
     position:relative;
     width:100%;
     max-width:600px;
-
+padding-top:4rem;   /* 🔥 push content down */
     margin:0 auto;              /* 🔥 center horizontally */
     padding:2rem 1rem;
 
