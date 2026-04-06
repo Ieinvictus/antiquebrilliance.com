@@ -1,7 +1,8 @@
+
 // 🚫 Disable Right Click
 document.addEventListener("contextmenu", e => e.preventDefault());
 
-// 🚫 Disable Copy / Cut / Select
+// 🚫 Disable Copy / Select
 ["copy","cut","selectstart"].forEach(evt=>{
   document.addEventListener(evt, e => e.preventDefault());
 });
@@ -21,17 +22,22 @@ document.addEventListener("keydown", function(e){
 
 });
 
-// 🚫 DevTools Detection (safe)
+// ✅ DEVTOOLS DETECTION (DESKTOP ONLY)
 setInterval(function(){
+
+  // 🔥 mobile skip
+  if (window.innerWidth < 900) return;
+
   const widthDiff = window.outerWidth - window.innerWidth;
   const heightDiff = window.outerHeight - window.innerHeight;
 
-  if (widthDiff > 160 || heightDiff > 160) {
+  if (widthDiff > 200 || heightDiff > 200) {
     document.body.innerHTML = "<h1 style='color:white;text-align:center;margin-top:20%'>Access Restricted</h1>";
   }
+
 }, 1000);
 
-// 🚫 Console disable (safe override)
+// 🚫 Console disable
 (function(){
   try{
     console.log = function(){};
@@ -43,18 +49,16 @@ setInterval(function(){
 // 🚫 Drag disable
 document.addEventListener("dragstart", e => e.preventDefault());
 
-// 🚫 Screenshot / tab switch blur
+// 🚫 Tab switch blur
 document.addEventListener("visibilitychange", function(){
   document.body.style.filter = document.hidden ? "blur(12px)" : "none";
 });
 
-// 🚫 Safe iframe protection (NO ERROR)
+// 🚫 Safe iframe protection
 try {
   if (window.self !== window.top) {
-    // instead of redirect (blocked), just hide content
     document.body.innerHTML = "<h1 style='color:white;text-align:center;margin-top:20%'>Embedding Not Allowed</h1>";
   }
 } catch (e) {
-  // cross-origin safe fallback
   document.body.innerHTML = "<h1 style='color:white;text-align:center;margin-top:20%'>Restricted</h1>";
 }
