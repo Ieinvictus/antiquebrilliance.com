@@ -15,8 +15,7 @@
 body{
   font-family:'Inter', sans-serif;
   background:var(--black);
-  color:var(--white);
-  min-height:100dvh;                   /* dynamic mobile height */
+  color:var(--white);                 
   overflow-x:hidden;                   /* no horizontal scroll */
   overflow-y:auto;                     /* vertical scroll always */
 
