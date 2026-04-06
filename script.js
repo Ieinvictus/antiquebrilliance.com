@@ -53,12 +53,3 @@ document.addEventListener("dragstart", e => e.preventDefault());
 document.addEventListener("visibilitychange", function(){
   document.body.style.filter = document.hidden ? "blur(12px)" : "none";
 });
-
-// 🚫 Safe iframe protection
-try {
-  if (window.self !== window.top) {
-    document.body.innerHTML = "<h1 style='color:white;text-align:center;margin-top:20%'>Embedding Not Allowed</h1>";
-  }
-} catch (e) {
-  document.body.innerHTML = "<h1 style='color:white;text-align:center;margin-top:20%'>Restricted</h1>";
-}
