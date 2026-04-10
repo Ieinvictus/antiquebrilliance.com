@@ -1,0 +1,146 @@
+/* =========================
+GLOBAL
+========================= */
+body {
+  background: #000;
+  color: #fff;
+  font-family: Arial, sans-serif;
+  padding: 20px;
+}
+
+/* TITLE */
+.title {
+  text-align: center;
+  margin-bottom: 30px;
+  font-size: 28px;
+  letter-spacing: 1px;
+}
+
+/* =========================
+CART CARD
+========================= */
+.cart-card {
+  display: flex;
+  gap: 20px;
+  background: linear-gradient(145deg, #111, #000);
+  padding: 20px;
+  margin-bottom: 20px;
+  border-radius: 15px;
+  border: 1px solid rgba(255,255,255,0.05);
+  align-items: center;
+  transition: 0.3s;
+}
+
+.cart-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(255,215,0,0.1);
+}
+
+/* IMAGE */
+.cart-img img {
+  width: 130px;
+  height: 130px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+/* INFO */
+.cart-info {
+  flex: 1;
+}
+
+.cart-info h2 {
+  margin-bottom: 8px;
+  font-size: 20px;
+}
+
+.cart-info p {
+  font-size: 14px;
+  margin: 3px 0;
+  color: #ccc;
+}
+
+.item-total {
+  margin-top: 8px;
+  font-size: 18px;
+  color: gold;
+  font-weight: bold;
+}
+
+/* ACTIONS */
+.cart-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.cart-actions button {
+  padding: 10px 15px;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  font-size: 13px;
+  transition: 0.3s;
+}
+
+/* ADD MORE */
+.cart-actions button:first-child {
+  background: gold;
+  color: #000;
+}
+
+.cart-actions button:first-child:hover {
+  background: #ffd700;
+}
+
+/* REMOVE */
+.cart-actions button:last-child {
+  background: #222;
+  color: #fff;
+}
+
+.cart-actions button:last-child:hover {
+  background: red;
+}
+
+/* =========================
+TOTAL BAR
+========================= */
+.total-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: #111;
+  padding: 15px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid rgba(255,255,255,0.1);
+}
+
+/* CHECKOUT BUTTON */
+.checkout-btn {
+  background: gold;
+  color: #000;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 30px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.checkout-btn:hover {
+  background: #ffd700;
+}
+
+/* =========================
+EMPTY CART
+========================= */
+#cartItems p {
+  text-align: center;
+  margin-top: 100px;
+  color: #888;
+  font-size: 18px;
+}
