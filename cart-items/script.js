@@ -7,6 +7,8 @@ function loadCart(){
   let container = document.getElementById("cartItems");
   let total = 0;
 
+  if(!container) return;
+
   container.innerHTML = "";
 
   if(cart.length === 0){
@@ -70,7 +72,7 @@ function addMore(id){
 }
 
 // =========================
-// REMOVE ITEM
+// REMOVE
 // =========================
 function removeItem(id){
 
@@ -81,6 +83,13 @@ function removeItem(id){
   localStorage.setItem("cart", JSON.stringify(cart));
 
   loadCart();
+}
+
+// =========================
+// CHECKOUT
+// =========================
+function goCheckout(){
+  window.location.href = "checkout.html";
 }
 
 // =========================
