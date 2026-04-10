@@ -1,46 +1,77 @@
-<!DOCTYPE html>
-<html lang="en">
-
-  <head>
-    <meta charset="UTF-8">
-    <title>Cart page</title>
-    <link rel="stylesheet" href="./style.css">
-
-  </head>
-    
-  <body>
-  <!DOCTYPE html>
-<html>
-<head>
-<title>Cart</title>
-<link rel="stylesheet" href="cart.css">
-</head>
-
 <body>
 
-<h1 class="title">Your Cart</h1>
+<!-- TITLE (DEFAULT HIDDEN) -->
+<h1 id="cartTitle" class="title" style="display:none;">
+  🛒 Your Cart
+</h1>
 
-<div id="cartItems"></div>
+<!-- CART CONTAINER -->
+<div id="cartItems">
 
-<!-- TOTAL + CHECKOUT -->
+  <!-- ROYAL1 CARD (DEFAULT HIDDEN) -->
+  <div id="royal1-card" class="cart-card" style="display:visible ;">
+
+    <!-- IMAGE -->
+    <div class="cart-img">
+      <img src="https://images.unsplash.com/photo-1600180758890-6b94519a8ba6" alt="Diamond">
+    </div>
+
+    <!-- INFO -->
+    <div class="cart-info">
+
+      <h2>Royal Diamond Set</h2>
+
+      <div class="info-grid">
+        <span>SKU: RD001</span>
+        <span>Category: Jewelry</span>
+
+        <span>Carat: 1.5</span>
+        <span>Color: D</span>
+
+        <span>Clarity: VVS1</span>
+        <span>Cut: Excellent</span>
+
+        <span>Lab: GIA</span>
+        <span>Origin: Surat, India</span>
+      </div>
+
+      <!-- PRICE -->
+      <div class="price-box">
+        Lot: <span id="royal1-qty">0</span> × ₹125000 =
+        ₹<span id="royal1-total">0</span>
+      </div>
+
+    </div>
+
+    <!-- ACTION BUTTONS -->
+    <div class="cart-actions">
+      <button onclick="addMore('royal1')" class="add-btn">
+        Add Item
+      </button>
+
+      <button onclick="removeItem('royal1')" class="remove-btn">
+        Remove
+      </button>
+    </div>
+
+  </div>
+
+</div>
+
+<!-- TOTAL BAR -->
 <div class="total-bar">
 
-  <div>
+  <div class="total-text">
     Total: ₹<span id="totalAmount">0</span>
   </div>
 
   <button onclick="goCheckout()" class="checkout-btn">
-    Checkout
+    Checkout →
   </button>
 
 </div>
 
+<!-- JS -->
 <script src="cart.js"></script>
 
 </body>
-</html>
-    <script  src="./script.js"></script>
-
-  </body>
-  
-</html>
