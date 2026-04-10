@@ -1,36 +1,85 @@
+// =========================
+// LOAD CART (FINAL)
+// =========================
 function loadCart(){
 
   let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
-  console.log(cart); // 🔥 DEBUG
+  let royalCard = document.getElementById("royal1-card");
+  let qtyEl = document.getElementById("royal1-qty");
+  let totalEl = document.getElementById("royal1-total");
 
-  let container = document.getElementById("cartItems");
-  let total = 0;
+  let title = document.getElementById("cartTitle");
+  let totalBox = document.getElementById("totalAmount");
 
-  if(!container) return;
+  let totalAmount = 0;
 
-  container.innerHTML = "";
+  // DEFAULT HIDE
+  if(royalCard) royalCard.style.display = "none";
+  if(title) title.style.display = "none";
 
   if(cart.length === 0){
-    container.innerHTML = "<p>Cart Empty</p>";
+    if(totalBox) totalBox.innerText = "0";
     return;
   }
 
   cart.forEach(item => {
 
-    let itemTotal = item.price * item.qty;
-    total += itemTotal;
+    if(item.id === "royal1"){
 
-    container.innerHTML += `
-      <div>
-        <h2>${item.title}</h2>
-        <p>Qty: ${item.qty}</p>
-        <p>Total: ₹${itemTotal}</p>
-      </div>
-    `;
+      let itemTotal = item.qty * item.price;
+      totalAmount += itemTotal;
+
+      // SHOW CARD
+      if(royalCard) royalCard.style.display = "block";
+
+      // SHOW TITLE
+      if(title) title.style.display = "block";
+
+      // UPDATE DATA
+      if(qtyEl) qtyEl.innerText = item.qty;
+      if(totalEl) totalEl.innerText = itemTotal;
+    }
+
   });
 
-  document.getElementById("totalAmount").innerText = total;
+  // TOTAL
+  if(totalBox) totalBox.innerText = totalAmount;
 }
 
+// =========================
+// ADD MORE
+// =========================
+function addMore(id){
+
+  let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+  cart.forEach(item => {
+    if(item.id === id){
+      item.qty++;
+    }
+  });
+
+  localStorage.setItem("cart", JSON.stringify(cart));
+
+  loadCart();
+}
+
+// =========================
+// REMOVE
+// =========================
+function removeItem(id){
+
+  let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+  cart = cart.filter(item => item.id !== id);
+
+  localStorage.setItem("cart", JSON.stringify(cart));
+
+  loadCart();
+}
+
+// =========================
+// INIT
+// =========================
 document.addEventListener("DOMContentLoaded", loadCart);
