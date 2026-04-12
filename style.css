@@ -217,7 +217,22 @@ h1 {
   border-bottom: 1px solid #333;
   cursor: pointer;
 }
+/* LINK STYLE */
+.side-menu ul li a{
+  text-decoration:none;
+  color:#fff;                 /* white text */
+  font-size:15px;
+  font-weight:500;
+  display:block;
+  padding:6px 0;
+  transition:0.3s;
+}
 
+/* HOVER EFFECT */
+.side-menu ul li a:hover{
+  color:#d4af37;              /* gold hover */
+  transform:translateX(5px);  /* slight move */
+}
 /* DROPDOWN */
 .submenu {
   display: none;
