@@ -979,15 +979,45 @@ LUXURY FOOTER - ANTIQUE BRILLIANCE
   color: #000;
 }
 
-/* BOTTOM */
-.lux-bottom{
-  text-align: center;
-  margin-top: 40px;
-  padding-top: 15px;
-  border-top: 1px solid #111;
 
-  color: #666;
-  font-size: 13px;
+/* BOTTOM */
+/* BOTTOM BAR */
+.lux-bottom{
+  border-top:1px solid rgba(255,255,255,0.1);
+  margin-top:30px;
+  padding-top:15px;
+
+  display:flex;
+  flex-direction:column;   /* 🔥 vertical layout */
+  align-items:center;      /* center all */
+  gap:10px;
+
+  font-size:13px;
+  color:#aaa;
+  text-align:center;
+}
+
+/* LEFT (TOP TEXT) */
+.lux-bottom-left p{
+  margin:0;
+}
+
+/* RIGHT LINKS (BOTTOM) */
+.lux-bottom-right{
+  display:flex;
+  gap:15px;
+  justify-content:center;
+}
+
+/* LINKS */
+.lux-bottom-right a{
+  color:#aaa;
+  text-decoration:none;
+  transition:0.3s;
+}
+
+.lux-bottom-right a:hover{
+  color:#fff;
 }
 .brand-logo{
   width: 150px;
