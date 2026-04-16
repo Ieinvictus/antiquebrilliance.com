@@ -36,14 +36,16 @@ h1 {
 .nav-right {
   display: flex;
   align-items: center;
-  gap: 20px;
+  gap: clamp(1rem, 2vw, 1.25rem);
 }
 
 /* CART ICON */
 .cart-icon {
   position: relative;
   cursor: pointer;
-  font-size: 24px;
+  /* 🔥 responsive size */
+  /* 🔥 responsive size */
+  font-size: clamp(1.3rem, 2vw, 1.5rem);
 }
 
 /* COUNT BADGE */
@@ -60,12 +62,13 @@ h1 {
 
 /* PROFILE */
 .profile-icon {
-  font-size: 24px;
+  /* 🔥 responsive size */
+  font-size: clamp(1.3rem, 2vw, 1.5rem);
   cursor: pointer;
 }
 .menu-icon {
-  width: 28px;
-  height: 22px;
+  width: clamp(1.5rem, 3vw, 2rem);
+  height: clamp(1.3rem, 2.5vw, 1.6rem);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -78,7 +81,8 @@ h1 {
   display: block;
   height: 3px;
   width: 100%;
-  font-size:24px;
+  /* 🔥 responsive size */
+  font-size: clamp(1rem, 2vw, 1.5rem);
   background: white;
   border-radius: 2px;
   transition: 0.3s ease;
@@ -97,10 +101,44 @@ h1 {
   transform: rotate(-45deg) translate(5px, -5px);
 }
 .nav-center {
-  font-size: 19px;
+  /* 🔥 responsive size */
+  font-size: clamp(1rem, 2vw, 1.5rem);
   font-weight: bold;
   text-align: center;
   flex: 1;
+}
+/* BRAND LINK */
+.nav-brand{
+  text-decoration:none;
+  color:#fff;
+  text-transform: uppercase;
+  /* 🔥 responsive size */
+  font-size: clamp(1rem, 2vw, 1.5rem);
+  letter-spacing:1px;
+  font-weight:500;
+  position:relative;
+  transition:0.3s;
+}
+
+/* HOVER EFFECT (Luxury underline) */
+.nav-brand::after{
+  content:"";
+  position:absolute;
+  left:50%;
+  bottom:-4px;
+  width:0%;
+  height:1px;
+  background:#D4AF37;
+  transition:0.3s;
+  transform:translateX(-50%);
+}
+
+.nav-brand:hover::after{
+  width:100%;
+}
+
+.nav-brand:hover{
+  color:#D4AF37;
 }
 /* LEFT SECTION */
 .nav-left {
@@ -162,13 +200,13 @@ h1 {
 }
 /* ICON STYLE */
 .search-icon {
+ /* 🔥 responsive size */
   font-size: 18px;
   color: #ccc;
   background:#000;
   cursor: pointer;
   transition: 0.3s;
 }
-
 /* HOVER EFFECT */
 .search-icon:hover {
   color: #fff;
@@ -217,18 +255,85 @@ h1 {
   border-bottom: 1px solid #333;
   cursor: pointer;
 }
+/* LINK STYLE */
+.side-menu ul li a{
+  text-decoration:none;
+  color:#fff;
+  font-size:15px;
+  font-weight:500;
+  display:block;
+  padding:8px 0;
+  transition:0.3s;
+  position:relative;
+}
 
+/* 🔥 HOVER EFFECT */
+.side-menu ul li a:hover{
+  color:#D4AF37; /* gold */
+  transform:translateX(6px); /* smooth move */
+}
+
+/* ✨ UNDERLINE EFFECT */
+.side-menu ul li a::after{
+  content:"";
+  position:absolute;
+  left:0;
+  bottom:0;
+  width:0%;
+  height:1px;
+  background:#D4AF37;
+  transition:0.3s;
+}
+
+.side-menu ul li a:hover::after{
+  width:100%;
+}
 /* DROPDOWN */
 .submenu {
-  display: none;
-  padding-left: 15px;
-  overflow-y:auto;
+  display:none;
+  padding-left:15px;
+  margin-top:8px;
+  overflow-y: auto;
+  border-left:1px solid rgba(212,175,55,0.3); /* subtle gold line */
+  animation:fadeIn 0.3s ease;
 }
 
 .dropdown.active .submenu {
   display: block;
 }
+/* SUBMENU ITEMS */
+.submenu li{
+  padding:8px 0;
+}
 
+/* LINK */
+.submenu li a{
+  color:#ccc;
+  font-size:14px;
+  text-decoration:none;
+  transition:0.3s;
+  display:block;
+  position:relative;
+}
+
+/* 🔥 HOVER */
+.submenu li a:hover{
+  color:#D4AF37;
+  transform:translateX(5px);
+}
+
+/* ✨ SMALL DOT INDICATOR */
+.submenu li a::before{
+  content:"•";
+  position:absolute;
+  left:-12px;
+  color:#666;
+  transition:0.3s;
+}
+
+.submenu li a:hover::before{
+  color:#D4AF37;
+}
 
 /* VIDEO FULL COVER */
 .hero-video {
