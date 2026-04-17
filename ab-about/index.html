@@ -47,14 +47,17 @@ Discover the story behind Antique Brilliance, a global luxury diamond jewelry br
 <!-- FONT AWESOME -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
-<!-- SCHEMA (ADVANCED SEO) -->
+<!-- ================= SEO SCHEMA (FULL OPTIMIZED) ================= -->
+
+<!-- ORGANIZATION -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "Organization",
   "name": "Antique Brilliance",
-  "url": "https://antiquebrilliance.com/ab-about/",
+  "url": "https://antiquebrilliance.com",
   "logo": "https://antiquebrilliance.com/banner/ab-fav.png",
+  "description": "Antique Brilliance is a global luxury diamond jewelry brand offering premium handcrafted collections with timeless elegance.",
   "sameAs": [
     "https://www.instagram.com/antique_brilliance",
     "https://www.facebook.com/antiquebrilliance",
@@ -64,26 +67,70 @@ Discover the story behind Antique Brilliance, a global luxury diamond jewelry br
 }
 </script>
 
-<!-- WEBSITE SCHEMA -->
+<!-- WEBSITE -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "Antique Brilliance",
+  "url": "https://antiquebrilliance.com",
+  "potentialAction": {
+    "@type": "SearchAction",
+    "target": "https://antiquebrilliance.com/?search={search_term_string}",
+    "query-input": "required name=search_term_string"
+  }
+}
+</script>
+
+<!-- ABOUT PAGE -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "AboutPage",
   "name": "About Antique Brilliance",
   "url": "https://antiquebrilliance.com/ab-about/",
-  "description": "Learn about Antique Brilliance, a premium luxury diamond jewelry brand known for craftsmanship and timeless elegance worldwide."
+  "description": "Discover the story behind Antique Brilliance, a premium luxury diamond jewelry brand redefining elegance with world-class craftsmanship.",
+  "mainEntity": {
+    "@type": "Organization",
+    "name": "Antique Brilliance"
+  }
 }
 </script>
 
-<!-- PRODUCT READY (FUTURE SEO BOOST) -->
+<!-- BRAND -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "Brand",
   "name": "Antique Brilliance",
-  "url": "https://antiquebrilliance.com"
+  "url": "https://antiquebrilliance.com",
+  "logo": "https://antiquebrilliance.com/banner/ab-fav.png"
 }
 </script>
+
+<!-- BREADCRUMB (SEO BOOST) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://antiquebrilliance.com"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "About",
+      "item": "https://antiquebrilliance.com/ab-about/"
+    }
+  ]
+}
+</script>
+
+<!-- ============================================================ -->
 
 </head>
 <body>
